@@ -1,0 +1,1383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BeautyPlus Studio | Luxury Beauty Services in Accra</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #d4af37;
+            --light-gold: #e8c96c;
+            --dark: #1a1a1a;
+            --light: #f9f6f0;
+            --gray: #eaeaea;
+            --transition: all 0.3s ease;
+            --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--dark);
+            background-color: var(--light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            color: var(--dark);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            display: inline-block;
+            padding-bottom: 15px;
+            position: relative;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 3px;
+            background: var(--gold);
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: var(--gold);
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 600;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: var(--transition);
+            text-transform: uppercase;
+            font-size: 14px;
+            letter-spacing: 1px;
+        }
+        
+        .btn:hover {
+            background: var(--light-gold);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+        
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            z-index: 1000;
+            padding: 15px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--dark);
+            text-decoration: none;
+        }
+        
+        .logo span {
+            color: var(--gold);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--gold);
+            bottom: -5px;
+            left: 0;
+            transition: var(--transition);
+        }
+        
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .book-now-btn {
+            margin-left: 20px;
+        }
+        
+        /* Mobile Menu */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            z-index: 1001;
+        }
+        
+        .menu-toggle span {
+            height: 3px;
+            width: 25px;
+            background: var(--dark);
+            margin: 2px 0;
+            display: block;
+            transition: var(--transition);
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding-top: 80px;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            color: white;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .hero-btns {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        /* About Section */
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .about-img {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+        
+        .about-img img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: var(--transition);
+        }
+        
+        .about-img:hover img {
+            transform: scale(1.05);
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-text h2 {
+            margin-bottom: 20px;
+        }
+        
+        .about-text p {
+            margin-bottom: 20px;
+        }
+        
+        /* Services Section */
+        .services {
+            background-color: white;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow);
+        }
+        
+        .service-img {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .service-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .service-card:hover .service-img img {
+            transform: scale(1.1);
+        }
+        
+        .service-content {
+            padding: 20px;
+        }
+        
+        .service-content h3 {
+            margin-bottom: 10px;
+            color: var(--gold);
+        }
+        
+        /* Gallery Section */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+        }
+        
+        .gallery-item {
+            height: 250px;
+            border-radius: 8px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .gallery-item::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.3);
+            opacity: 0;
+            transition: var(--transition);
+        }
+        
+        .gallery-item:hover::after {
+            opacity: 1;
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('https://images.unsplash.com/photo-1522338242992-e1a54906a8da?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80') center/cover no-repeat;
+            color: white;
+            text-align: center;
+        }
+        
+        .testimonials .section-title h2 {
+            color: white;
+        }
+        
+        .testimonial-slider {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .testimonial {
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            backdrop-filter: blur(5px);
+            margin: 20px;
+        }
+        
+        .client-img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 0 auto 20px;
+            border: 3px solid var(--gold);
+        }
+        
+        .client-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .client-name {
+            color: var(--gold);
+            font-weight: 600;
+            margin-top: 20px;
+        }
+        
+        /* Booking Section */
+        .booking-form {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--gray);
+            border-radius: 5px;
+            font-family: 'Montserrat', sans-serif;
+            transition: var(--transition);
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: var(--gold);
+            outline: none;
+        }
+        
+        .form-row {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .form-row .form-group {
+            flex: 1;
+        }
+        
+        /* Contact Section */
+        .contact {
+            background: var(--light);
+        }
+        
+        .contact-container {
+            display: flex;
+            gap: 50px;
+        }
+        
+        .contact-info {
+            flex: 1;
+        }
+        
+        .contact-form {
+            flex: 1;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 30px;
+        }
+        
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+        
+        .contact-icon i {
+            color: white;
+            font-size: 20px;
+        }
+        
+        .contact-text h3 {
+            margin-bottom: 5px;
+        }
+
+        .map-container {
+            flex: 1;
+            height: 400px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        .socials-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .socials-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: var(--gold);
+            color: white;
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+
+        .socials-links a:hover {
+            background: var(--light-gold);
+            transform: translateY(-5px);
+        }
+        
+        /* Footer */
+        .footer {
+            background: var(--dark);
+            color: white;
+            padding: 40px 0 20px;
+        }
+        
+        .footer-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+        
+        .footer-col {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .footer-col h3 {
+            color: var(--gold);
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .footer-links a:hover {
+            color: var(--gold);
+            padding-left: 5px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            transition: var(--transition);
+        }
+        
+        .social-links a:hover {
+            background: var(--gold);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            margin-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #999;
+            font-size: 0.9rem;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 1;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            text-align: center;
+            max-width: 500px;
+            width: 90%;
+            position: relative;
+            transform: translateY(-50px);
+            transition: transform 0.3s ease;
+        }
+
+        .modal.active .modal-content {
+            transform: translateY(0);
+        }
+
+        .modal-icon {
+            font-size: 60px;
+            color: var(--gold);
+            margin-bottom: 20px;
+        }
+
+        .modal h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+
+        .modal p {
+            margin-bottom: 25px;
+            font-size: 1.1rem;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--dark);
+        }
+
+        .modal-close-btn {
+            background: var(--dark);
+            color: white;
+        }
+
+        .modal-close-btn:hover {
+            background: #333;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .contact-container {
+                flex-direction: column;
+            }
+            
+            .map-container {
+                height: 300px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            section {
+                padding: 60px 0;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 70%;
+                height: 100vh;
+                background: rgba(255, 255, 255, 0.95);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                transition: var(--transition);
+                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+            }
+            
+            .nav-links.active {
+                right: 0;
+            }
+            
+            .nav-links li {
+                margin: 15px 0;
+            }
+            
+            .book-now-btn {
+                margin-left: 0;
+                margin-top: 20px;
+            }
+            
+            .menu-toggle {
+                display: flex;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .form-row {
+                flex-direction: column;
+                gap: 0;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero {
+                height: 90vh;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+            
+            .services-grid,
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .gallery-item {
+                height: 200px;
+            }
+            
+            .booking-form {
+                padding: 20px;
+            }
+            
+            .testimonial {
+                padding: 20px;
+                margin: 10px;
+            }
+            
+            .footer-col {
+                min-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo">Beauty<span>Plus</span></a>
+            
+            <div class="menu-toggle" id="mobile-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#booking" class="btn book-now-btn">Book Now</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Luxury Beauty Experience</h1>
+                <p>Welcome to BeautyPlus Studio, Accra's premier destination for premium beauty services. Indulge in our luxurious treatments and transform your look with our expert team.</p>
+                <div class="hero-btns">
+                    <a href="#services" class="btn">Our Services</a>
+                    <a href="#booking" class="btn" style="background: transparent; border: 2px solid white;">Book Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Our Studio</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-img">
+                    <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?ixlib=rb-4.0.3&auto=format&fit=crop&w=967&q=80" alt="BeautyPlus Studio Interior">
+                </div>
+                <div class="about-text">
+                    <h2>Where Beauty Meets Excellence</h2>
+                    <p>Located in the heart of Accra Kwabenya, BeautyPlus Studio is a sanctuary of beauty and relaxation. Our mission is to provide exceptional beauty services in a luxurious environment.</p>
+                    <p>Founded by Christopher Oppong, our studio brings together skilled professionals dedicated to enhancing your natural beauty with the latest techniques and premium products.</p>
+                    <p>We believe that beauty is an art form, and every client deserves a personalized experience that leaves them feeling confident and rejuvenated.</p>
+                    <a href="#contact" class="btn">Visit Us Today</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Premium Services</h2>
+            </div>
+            <div class="services-grid">
+                <!-- Service 1 -->
+                <div class="service-card">
+                    <div class="service-img">
+                        <img src="on black girl, black skin.jpeg" alt="Nail Services">
+                    </div>
+                    <div class="service-content">
+                        <h3>Nail Artistry</h3>
+                        <p>Experience our premium nail services including Acrylic Toes, Stick on Toes, and French Tip designs. Perfectly manicured nails for every occasion.</p>
+                    </div>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="service-card">
+                    <div class="service-img">
+                        <img src="3c48dd19-a91d-401b-8a4a-6437134d2dd4.jpeg" alt="Lash Extensions">
+                    </div>
+                    <div class="service-content">
+                        <h3>Lash Extensions</h3>
+                        <p>Choose from Classic, Hybrid, Volume, or Mega Volume lashes. Our refill services keep your lashes looking perfect between appointments.</p>
+                    </div>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="service-card">
+                    <div class="service-img">
+                        <img src="YOU HAVE BEEN LOOKING FOR A PMU TRAINING THAT IS….jpeg" alt="Brow Services">
+                    </div>
+                    <div class="service-content">
+                        <h3>Brow Perfection</h3>
+                        <p>Microblading, Ombré Brows, Combo Brows, Brow Tint, and Lamination services to frame your face perfectly. Touchup services available.</p>
+                    </div>
+                </div>
+                
+                <!-- Service 4 -->
+                <div class="service-card">
+                    <div class="service-img">
+                        <img src="5e55a90d-50c9-4664-a734-13bae971b9a9.jpeg" alt="Skin Treatments">
+                    </div>
+                    <div class="service-content">
+                        <h3>Skin & Facial Care</h3>
+                        <p>Rejuvenating facials and skin treatments tailored to your skin type. Achieve a radiant complexion with our expert care.</p>
+                    </div>
+                </div>
+                
+                <!-- Service 5 -->
+                <div class="service-card">
+                    <div class="service-img">
+                        <img src="4bebfdf3-2447-40fa-a056-952bc0ea5135.jpeg" alt="Tattoo Services">
+                    </div>
+                    <div class="service-content">
+                        <h3>Tattoo Artistry</h3>
+                        <p>Professional tattoo services in a sterile, comfortable environment. From small designs to larger pieces, our artists bring your vision to life.</p>
+                    </div>
+                </div>
+                
+                <!-- Service 6 -->
+                <div class="service-card">
+                    <div class="service-img">
+                        <img src="Premium Photo _ Cropped image of a young woman getting spa massage treatment and foot reflexology in a beauty salon_.jpeg" alt="Pedicure Services">
+                    </div>
+                    <div class="service-content">
+                        <h3>Luxury Pedicure</h3>
+                        <p>Indulge in our premium pedicure services that leave your feet soft, smooth, and beautifully polished. Perfect for any season.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Work Gallery</h2>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="dfcdd11d-edb4-4a51-84db-02ed274fea5e.jpeg" alt="Nail Design">
+                </div>
+                <div class="gallery-item">
+                    <img src="ff5467fe-7e56-489c-8bcc-713d7dc805a9.jpeg" alt="Lash Extensions">
+                </div>
+                <div class="gallery-item">
+                    <img src="HYBRID EYELASH EXTENSIONS INSPO.jpeg" alt="Brow Design">
+                </div>
+                <div class="gallery-item">
+                    <img src="1f1fcc84-c705-4b5e-b027-7bd7164eacf0.jpeg" alt="Nail Art">
+                </div>
+                <div class="gallery-item">
+                    <img src="gold earrings, piercing inspiration, gold….jpeg" alt="Facial Treatment">
+                </div>
+                <div class="gallery-item">
+                    <img src="★ tramp stamp tattoo ★ design from my flash sheet….jpeg" alt="Tattoo Art">
+                </div>
+                <div class="gallery-item">
+                    <img src="Restore the health and beauty of your nails with.jpeg" alt="Pedicure">
+                </div>
+                <div class="gallery-item">
+                    <img src="4bdc2312-e750-4b4f-96a3-a2be1debbf1e.jpeg" alt="Makeup">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>Client Testimonials</h2>
+            </div>
+            <div class="testimonial-slider">
+                <div class="testimonial">
+                    <div class="client-img">
+                        <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Client">
+                    </div>
+                    <p>"The lash extensions I got at BeautyPlus Studio are absolutely stunning! The attention to detail and comfort during the procedure was exceptional. I've received so many compliments!"</p>
+                    <div class="client-name">- Nana Ama</div>
+                </div>
+                <div class="testimonial">
+                    <div class="client-img">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Client">
+                    </div>
+                    <p>"BeautyPlus Studio transformed my brows with microblading. They look so natural and perfect! The studio is beautiful and the service is top-notch. Highly recommend!"</p>
+                    <div class="client-name">- Efia Owusu</div>
+                </div>
+                <div class="testimonial">
+                    <div class="client-img">
+                        <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Client">
+                    </div>
+                    <p>"I've been getting my nails done at BeautyPlus for months now. Their acrylic toes with French tips are my favorite! The technicians are true artists and the salon is always immaculate."</p>
+                    <div class="client-name">- Nana Akua</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Section -->
+    <section id="booking" class="booking">
+        <div class="container">
+            <div class="section-title">
+                <h2>Book Your Appointment</h2>
+            </div>
+            <form id="bookingForm" class="booking-form" method="POST">
+                <input type="hidden" name="_subject" value="New Booking Request - BeautyPlus Studio">
+                <input type="hidden" name="_template" value="table">
+                <input type="hidden" name="_captcha" value="false">
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="service">Select Service</label>
+                        <select id="service" name="service" required>
+                            <option value="">Choose a service...</option>
+                            <option value="tattoos">Tattoos</option>
+                            <option value="pedicure">Pedicure</option>
+                            <option value="facial">Facial</option>
+                            <option value="nails">Nails</option>
+                            <option value="volume-lashes">Microblading</option>
+                            <option value="piercing">Lobe Piercing</option>
+                            <option value="hybrid-lashes">Hybrid Lashes</option>
+                            <option value="hybrid-lashes">Classic Lashes</option>
+                            <option value="volume-lashes">Volume Lashes</option>
+                            <option value="volume-lashes">Cluster Lashes</option>
+                            <option value="acrylic-toes">Acrylic Toes</option>
+                            <option value="volume-lashes">Stick on Toes</option>
+                            <option value="volume-lashes">Stick on Toes with French Tip</option>
+                            <option value="volume-lashes">Acrylic Toes with French Tips</option>
+                            <option value="volume-lashes">Ombré Brows</option>
+                            <option value="volume-lashes">Combo Brows</option>
+                            <option value="volume-lashes">Brow Tint</option>
+                            <option value="volume-lashes">Brow Lamination</option>
+                            <option value="volume-lashes">Brow Lamination and Tint</option>
+                            <option value="volume-lashes">Ombré Touchup</option>
+                            <option value="volume-lashes">Combo Touchup</option>
+                            <option value="volume-lashes">Mega Volume</option>
+                            <option value="volume-lashes">Classic Refill</option>
+                            <option value="volume-lashes">Hybrid refill</option>
+                            <option value="volume-lashes">Volume Refill</option>
+                            <option value="brows">Ombré Brows & Microblading</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="date">Preferred Date</label>
+                        <input type="date" id="date" name="date" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="time">Preferred Time</label>
+                        <input type="time" id="time" name="time" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Special Requests</label>
+                    <textarea id="message" name="message" rows="4"></textarea>
+                </div>
+                
+                <button type="submit" class="btn">Book Now</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Us</h2>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h3>Our Location</h3>
+                            <p>Kwabenya, Accra, Ghana</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h3>Phone Number</h3>
+                            <p>055 753 9900</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h3>Email Address</h3>
+                            <p>christopheroppong4170@gmail.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h3>Working Hours</h3>
+                            <p>Monday - Thursday: 9:00 AM - 7:00 PM</p>
+                            <p>Saturday: 9:00 AM - 7:00 PM</p>
+                            <p>Friday: 9:00 AM - 9:00 PM</p>
+                            <p>Sunday: Closed</p>
+                        </div>
+                    </div>
+                                        
+                    <div class="socials-links">
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3970.1908691183903!2d-0.2453155!3d5.685533500000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfdf9f0035b9a1ef%3A0xb245f4f2f46d87ed!2sBeautyPlus%20Studio!5e0!3m2!1sen!2sgh!4v1749768041584!5m2!1sen!2sgh" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3>BeautyPlus Studio</h3>
+                    <p>Luxury beauty services in the heart of Accra. We specialize in premium nail, lash, brow, and skin treatments that enhance your natural beauty.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#gallery">Gallery</a></li>
+                        <li><a href="#booking">Book Appointment</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Our Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="#services">Nail Services</a></li>
+                        <li><a href="#services">Lash Extensions</a></li>
+                        <li><a href="#services">Brow Services</a></li>
+                        <li><a href="#services">Facials & Skincare</a></li>
+                        <li><a href="#services">Tattoo Artistry</a></li>
+                        <li><a href="#services">Pedicure</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Contact Info</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Kwabenya, Accra, Ghana</p>
+                    <p><i class="fas fa-phone"></i> 055 753 9900</p>
+                    <p><i class="fas fa-envelope"></i> christopheroppong4170@gmail.com</p>
+                    <p><i class="fas fa-clock"></i> Mon-Sat: 9:00 AM - 7:00 PM</p>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 BeautyPlus Studio. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Popup Modal -->
+    <div id="booking-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h3>Thank You!</h3>
+            <p>Your appointment request has been received. We'll contact you soon to confirm your booking.</p>
+            <button class="btn modal-close-btn">OK</button>
+        </div>
+    </div>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navLinks = document.getElementById('nav-links');
+        
+        mobileMenu.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+        });
+        
+        // Close menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Form validation and submission
+        document.addEventListener('DOMContentLoaded', function() {
+            const bookingForm = document.getElementById('bookingForm');
+            const modal = document.getElementById('booking-modal');
+            const dateInput = document.getElementById('date');
+            const timeInput = document.getElementById('time');
+            
+            // Show modal function
+            function showModal() {
+                modal.classList.add('active');
+            }
+            
+            // Close modal function
+            function closeModalFunc() {
+                modal.classList.remove('active');
+            }
+            
+            // Close modal when clicking X or OK button
+            document.querySelectorAll('.close-modal, .modal-close-btn').forEach(btn => {
+                btn.addEventListener('click', closeModalFunc);
+            });
+            
+            // Close modal when clicking outside
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    closeModalFunc();
+                }
+            });
+            
+            // Set minimum date to today and prevent past date selection
+            if (dateInput) {
+                const today = new Date();
+                const dd = String(today.getDate()).padStart(2, '0');
+                const mm = String(today.getMonth() + 1).padStart(2, '0');
+                const yyyy = today.getFullYear();
+                const minDate = yyyy + '-' + mm + '-' + dd;
+                dateInput.setAttribute('min', minDate);
+
+                dateInput.addEventListener('input', function() {
+                    const selectedDate = new Date(this.value);
+                    const today = new Date();
+                    today.setHours(0, 0, 0, 0);
+
+                    if (selectedDate < today) {
+                        alert('Please select today or a future date for your appointment.');
+                        this.value = '';
+                        return;
+                    }
+
+                    if (selectedDate.getDay() === 0) {
+                        alert('We are closed on Sundays. Please choose another day.');
+                        this.value = '';
+                    }
+                });
+            }
+
+            // Time input validation for working hours
+            if (timeInput) {
+                timeInput.addEventListener('input', function() {
+                    const selectedDate = new Date(dateInput.value);
+                    const dayOfWeek = selectedDate.getDay();
+                    const selectedTime = this.value;
+                    
+                    if (!selectedTime || !dateInput.value) return;
+                    
+                    const [hours, minutes] = selectedTime.split(':').map(Number);
+                    const isFriday = dayOfWeek === 5;
+                    
+                    if (isFriday) {
+                        if (hours < 9 || (hours >= 21 && minutes > 0)) {
+                            alert('On Fridays, our working hours are 9:00 AM to 9:00 PM. Please choose a time within this range.');
+                            this.value = '';
+                        }
+                    } else {
+                        if (hours < 9 || (hours >= 19 && minutes > 0)) {
+                            alert('Our regular working hours are 9:00 AM to 7:00 PM. Please choose a time within this range.');
+                            this.value = '';
+                        }
+                    }
+                });
+            }
+            
+            // Form submission handler
+            bookingForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Get form data
+                const formData = new FormData(this);
+                const formObject = Object.fromEntries(formData.entries());
+                
+                // Validate form
+                const dateValue = dateInput.value;
+                const timeValue = timeInput.value;
+                
+                if (!dateValue || !timeValue) {
+                    alert('Please select both date and time for your appointment.');
+                    return;
+                }
+                
+                const selectedDate = new Date(dateValue);
+                const today = new Date();
+                today.setHours(0, 0, 0, 0);
+                const dayOfWeek = selectedDate.getDay();
+                const [hours, minutes] = timeValue.split(':').map(Number);
+                
+                if (selectedDate < today) {
+                    alert('Please select today or a future date for your appointment.');
+                    return;
+                }
+                
+                if (dayOfWeek === 0) {
+                    alert('Sorry, we are closed on Sundays. Please choose another day.');
+                    return;
+                }
+                
+                const isFriday = dayOfWeek === 5;
+                if (isFriday) {
+                    if (hours < 9 || (hours >= 21 && minutes > 0)) {
+                        alert('On Fridays, our working hours are 9:00 AM to 9:00 PM. Please choose a time within this range.');
+                        return;
+                    }
+                } else {
+                    if (hours < 9 || (hours >= 19 && minutes > 0)) {
+                        alert('Our regular working hours are 9:00 AM to 7:00 PM. Please choose a time within this range.');
+                        return;
+                    }
+                }
+                
+                // Send data to FormSubmit.co
+                fetch('https://formsubmit.co/ajax/christopheroppong4170@gmail.com', {
+                    method: 'POST',
+                    headers: { 
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        _subject: "New Booking Request - BeautyPlus Studio",
+                        _template: "table",
+                        _captcha: "false",
+                        ...formObject
+                    })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    // Show success modal
+                    showModal();
+                    // Reset form
+                    bookingForm.reset();
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('There was an error submitting your form. Please try again or contact us directly.');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
